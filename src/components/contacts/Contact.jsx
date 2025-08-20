@@ -1,12 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./contact.css";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const form = useRef();
+  const [status, setStatus] = useState(""); // success or error
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setStatus("loading");
 
     emailjs
       .sendForm("service_7ruf23s", "template_yki2k13", form.current, {
@@ -14,13 +16,17 @@ const Contact = () => {
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          setStatus("success");
+          form.current.reset(); // reset inputs
+          setTimeout(() => setStatus(""), 4000); // hide after 4s
         },
-        (error) => {
-          console.log("FAILED...", error.text);
+        () => {
+          setStatus("error");
+          setTimeout(() => setStatus(""), 4000);
         }
       );
   };
+
   return (
     <section className="contact section" id="contact">
       <h2 className="section__title">Get in touch</h2>
@@ -35,10 +41,8 @@ const Contact = () => {
             {/* Email */}
             <div className="contact__card">
               <i className="bx bx-mail-send contact__card-icon"></i>
-
               <h3 className="contact__card-title">Email</h3>
-              <span className="contact__card-data"></span>
-
+              <span className="contact__card-data">raeesm215@gmail.com</span>
               <a href="mailto:raeesm215@gmail.com" className="contact__button">
                 Write me{" "}
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
@@ -48,10 +52,8 @@ const Contact = () => {
             {/* Whatsapp */}
             <div className="contact__card">
               <i className="bx bxl-whatsapp contact__card-icon"></i>
-
               <h3 className="contact__card-title">Whatsapp</h3>
-              <span className="contact__card-data"></span>
-
+              <span className="contact__card-data">+91 9019135364</span>
               <a
                 href="https://api.whatsapp.com/send?phone=9019135364"
                 className="contact__button"
@@ -64,10 +66,8 @@ const Contact = () => {
             {/* Messenger */}
             <div className="contact__card">
               <i className="bx bxl-messenger contact__card-icon"></i>
-
               <h3 className="contact__card-title">Messenger</h3>
-              <span className="contact__card-data"></span>
-
+              <span className="contact__card-data">user.fb123</span>
               <a href="https://m.me/user.fb123" className="contact__button">
                 Write me{" "}
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
@@ -88,6 +88,7 @@ const Contact = () => {
                 name="name"
                 className="contact__form-input"
                 placeholder="Insert your name"
+                required
               />
             </div>
 
@@ -98,6 +99,7 @@ const Contact = () => {
                 name="email"
                 className="contact__form-input"
                 placeholder="Insert your email"
+                required
               />
             </div>
 
@@ -109,11 +111,12 @@ const Contact = () => {
                 rows="10"
                 className="contact__form-input"
                 placeholder="Write your project"
+                required
               ></textarea>
             </div>
 
-            <button href="#contact" className="button button--flex">
-              Send Message
+            <button type="submit" className="button button--flex">
+              {status === "loading" ? "Sending..." : "Send Message"}
               <svg
                 className="button__icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -138,6 +141,14 @@ const Contact = () => {
                 />
               </svg>
             </button>
+
+            {/* Status Message */}
+            {status === "success" && (
+              <p className="contact__status success">✅ Message Sent Successfully!</p>
+            )}
+            {status === "error" && (
+              <p className="contact__status error">❌ Failed to send. Try again!</p>
+            )}
           </form>
         </div>
       </div>
