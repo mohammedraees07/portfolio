@@ -1,0 +1,131 @@
+/* ========== Work / Projects Section ========== */
+.work__container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.work__card {
+  position: relative;
+  background-color: var(--container-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.work__img {
+  width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 1.25rem;
+  object-fit: cover;
+}
+
+.work__title {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: var(--font-medium);
+  margin-bottom: 0.75rem;
+  text-align: center;
+  color: var(--title-color);
+}
+
+.work__description {
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.work__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.35rem;
+  font-size: var(--small-font-size);
+  cursor: pointer;
+  color: var(--title-color);
+  transition: color 0.3s;
+  font-weight: var(--font-medium);
+}
+
+.work__button:hover {
+  color: var(--first-color);
+}
+
+.work__button-icon {
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.work__button:hover .work__button-icon {
+  transform: translateX(0.25rem);
+}
+
+/* ========== Responsive Breakpoints ========== */
+
+/* Large desktops */
+@media screen and (min-width: 1400px) {
+  .work__container {
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+/* Laptops */
+@media screen and (max-width: 1200px) {
+  .work__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 992px) {
+  .work__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Mobiles */
+@media screen and (max-width: 768px) {
+  .work__container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .work__card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Small phones */
+@media screen and (max-width: 480px) {
+  .work__container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .work__card {
+    padding: 1.25rem;
+  }
+
+  .work__title {
+    font-size: 1rem;
+  }
+
+  .work__description {
+    font-size: 0.9rem;
+  }
+}

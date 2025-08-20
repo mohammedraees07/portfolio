@@ -1,0 +1,154 @@
+/* ================= QUALIFICATION SECTION ================= */
+
+.qualification__container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.qualification__tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.qualification__button {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--title-color);
+  margin: 0 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.qualification__button:hover {
+  color: var(--title-color-dark);
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.05); /* subtle background */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.qualification__active {
+  color: var(--title-color-dark);
+  background-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transform: scale(1.05);
+}
+
+
+/* Sections */
+.qualification__sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.qualification__content {
+  display: none;
+}
+
+.qualification__content-active {
+  display: block;
+}
+
+
+
+.qualification__title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.qualification__subtitle {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.qualification__calendar {
+  font-size: 0.75rem;
+  color: var(--text-color-light);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Dot */
+/* Timeline item */
+.qualification__data {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  column-gap: 1.5rem;
+  position: relative;
+}
+
+/* Marker (dot + line holder) */
+.qualification__marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Dot */
+.qualification__rounder {
+  width: 13px;
+  height: 13px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Line from this dot to the next one */
+/* Line from this dot to the next one */
+.qualification__marker::after {
+  content: "";
+  position: absolute;
+  top: 13px; /* start exactly below the dot */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;  /* extend full height */
+  background-color: var(--text-color);
+  z-index: 0;
+}
+
+/* OPTIONAL: if you don’t want it to go infinitely,
+   you can limit height for each marker */
+.qualification__data:last-child .qualification__marker::after {
+  display: block; /* keep line for last item */
+  height: 60px;   /* small extra tail below last dot */
+}
+
+
+
+/* ============= MEDIA QUERIES ============= */
+
+/* For tablets */
+@media screen and (max-width: 768px) {
+  .qualification__container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 480px) {
+  .qualification__data {
+    column-gap: 0.75rem;
+  }
+
+  .qualification__title {
+    font-size: 0.95rem;
+  }
+
+  .qualification__subtitle {
+    font-size: 0.8rem;
+  }
+
+  .qualification__calendar {
+    font-size: 0.7rem;
+  }
+}

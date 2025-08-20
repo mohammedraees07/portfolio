@@ -1,0 +1,195 @@
+/* ========== Services Section ========== */
+.services__container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 320px));
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.services__content {
+  position: relative;
+  background-color: var(--container-color);
+  padding: 3rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.services__content:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.services__icon {
+  display: block;
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  color: var(--title-color);
+  margin-bottom: 1rem;
+}
+
+.services__title {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-bottom: 1rem;
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+}
+
+.services__button {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.35rem;
+  font-size: var(--small-font-size);
+  cursor: pointer;
+  color: var(--title-color);
+  margin-top: 1rem;
+  transition: color 0.3s;
+}
+
+.services__button:hover {
+  color: var(--first-color);
+}
+
+.services__button-icon {
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.services__button:hover .services__button-icon {
+  transform: translateX(0.25rem);
+}
+
+/* ========== Modal ========== */
+.services__modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: var(--z-modal, 1000);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.services__modal.active-modal {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.services__modal-content {
+  width: min(500px, 95%);
+  background-color: var(--container-color);
+  padding: 2.5rem 1.75rem;
+  border-radius: 1.5rem;
+  position: relative;
+}
+
+.services__modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+.services__modal-title,
+.services__modal-description {
+  text-align: center;
+}
+
+.services__modal-title {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: var(--font-medium);
+  margin-bottom: 0.75rem;
+}
+
+.services__modal-description {
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  padding: 0 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.services__modal-services {
+  display: grid;
+  row-gap: 0.75rem;
+}
+
+.services__modal-service {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+}
+
+.services__modal-icon {
+  font-size: 1.1rem;
+  color: var(--title-color);
+}
+
+/* ========== Responsive Breakpoints ========== */
+
+/* Very large desktops */
+@media screen and (min-width: 1920px) {
+  .services__container {
+    grid-template-columns: repeat(3, minmax(320px, 380px));
+    gap: 2.5rem;
+  }
+}
+
+/* Laptops */
+@media screen and (max-width: 1200px) {
+  .services__container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 992px) {
+  .services__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+  .services__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .services__content {
+    padding: 2rem 1.25rem;
+  }
+}
+
+/* Very small phones */
+@media screen and (max-width: 480px) {
+  .services__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+   .services__modal-content {
+    width: 90%;
+    max-width: 320px;
+    padding: 1.5rem 1rem; /* reduced padding */
+  }
+
+  .services__modal-close {
+    top: 0.75rem;
+    right: 0.75rem; /* pull it back so it stays in the corner */
+    font-size: 1.25rem; /* slightly smaller so it doesn’t clash */
+  }
+
+  .services__content {
+    padding: 1.75rem 1rem;
+  }
+}

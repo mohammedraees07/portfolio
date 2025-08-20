@@ -1,0 +1,43 @@
+.scrollup {
+  position: fixed;
+  right: 1.5rem;
+  bottom: -100%;         /* 🚀 completely hidden off screen */
+  background-color: var(--title-color);
+  opacity: 0;            /* 🚀 invisible */
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+  z-index: 9999;
+  transition: all .4s ease-in-out;
+  border: none;
+  cursor: pointer;
+  pointer-events: none;   /* 🚀 disables clicks when hidden */
+}
+
+.scrollup__icon {
+  font-size: 1.2rem;
+  color: var(--container-color);
+}
+
+.scrollup:hover {
+  background-color: var(--title-color-dark);
+}
+
+.show-scroll {
+  bottom: 5rem;          /* 🚀 slides into view */
+  opacity: 1;
+  pointer-events: auto;   /* 🚀 clickable only when visible */
+}
+
+
+
+/* 🔹 Responsive: adjust size on small screens */
+@media screen and (max-width: 768px) {
+  .scrollup {
+    right: 1rem;
+    bottom: 6rem; /* raise even more for mobile bottom nav */
+  }
+
+  .scrollup__icon {
+    font-size: 1.2rem;
+  }
+}
