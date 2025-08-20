@@ -1,6 +1,6 @@
 import Work1 from "../../assets/QuizCode.png";
 import Work2 from "../../assets/Explainable AI Debugger Interface.png";
-import Work3 from "../../assets/work3.jpg";
+import Work3 from "../../assets/Airline.jpg";
 // import Work4 from "../../assets/work4.jpg";
 // import Work5 from "../../assets/work5.jpg";
 
@@ -24,8 +24,8 @@ export const projectsData = [
   {
     id: 3,
     image: Work3,
-    title: "Brand design",
-    description: "Logo and brand identity design for a startup company.",
+    title: "AiroBooking",
+    description: "Developed a responsive Airline Management System using MongoDB and Express.js with seamless booking, user history tracking, and modern UI design.",
     link: "https://your-demo-link-3.com",
   },
 //   {
