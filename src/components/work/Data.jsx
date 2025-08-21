@@ -11,7 +11,7 @@ export const projectsData = [
     title: "Quiz Code",
     description:
       "A sleek and responsive JavaScript quiz app with live scoring, instant feedback, and progress tracking.",
-    link: "https://your-demo-link-1.com",
+    link: "https://quiz-think-code.vercel.app/",
   },
   {
     id: 2,
