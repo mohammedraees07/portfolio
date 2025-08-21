@@ -95,9 +95,9 @@
   }
 } /* ============ MOBILE NAV ============ */
 @media screen and (max-width: 768px) {
-  .header {
-    top: initial;
-    bottom: 0; /* nav bar sticks to bottom */
+   .header {
+    top: auto;          
+    bottom: 0;           /* stick to bottom */
   }
   .nav {
     height: var(--header-height);
@@ -150,6 +150,18 @@
     transform: none;
     color: var(--title-color-dark);
   }
+  /* Adjust for longer nav items like 'Qualifications' */
+.nav__link {
+  font-size: 0.85rem; /* slightly smaller */
+  text-align: center;
+}
+
+/* Allow flexible wrapping */
+.nav__list {
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1.2rem;
+}
+
 } /* Fix toggle icon on very small screens */
 @media screen and (max-width: 550px) {
   .nav__toggle {
@@ -158,6 +170,7 @@
   .nav__logo {
     font-size: 1.3rem; /* shrink logo slightly */
   }
+  
 } /* For extra small devices */
 @media screen and (max-width: 350px) {
   .nav__menu {

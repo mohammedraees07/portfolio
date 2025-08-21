@@ -11,10 +11,12 @@ import Footer from "./components/footer/Footer";
 import ScrollUp from "./components/ScrollUp/ScrollUp";
 import Work from "./components/work/Work";
 
+
 function App() {
   return (
     <>
       <Header />
+      
 
       <main className="main">
         <Home />

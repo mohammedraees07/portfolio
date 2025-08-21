@@ -9,14 +9,38 @@ const Footer = () => {
 
         <ul className="footer__list">
           <li>
+            <a href="#home" className="footer__link">
+              Home
+            </a>
+          </li>
+          <li>
             <a href="#about" className="footer__link">
               About
             </a>
           </li>
-
+          <li>
+            <a href="#skills" className="footer__link">
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="#qualifications" className="footer__link">
+              Qualifications
+            </a>
+          </li>
+          <li>
+            <a href="#services" className="footer__link">
+              Services
+            </a>
+          </li>
           <li>
             <a href="#portfolio" className="footer__link">
-              Projects
+              Portfolio
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="footer__link">
+              Contact
             </a>
           </li>
         </ul>

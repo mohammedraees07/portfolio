@@ -47,6 +47,7 @@ const Header = () => {
               { id: "#about", icon: "uil-user", label: "About" },
               { id: "#skills", icon: "uil-file-alt", label: "Skills" },
               { id: "#services", icon: "uil-briefcase-alt", label: "Services" },
+              { id: "#qualifications", icon: "uil-graduation-cap", label: "Qualifications" },
               { id: "#portfolio", icon: "uil-scenery", label: "Portfolio" },
               { id: "#contact", icon: "uil-message", label: "Contact" },
             ].map((item) => (
