@@ -1,5 +1,5 @@
-import Work1 from "../../assets/QuizCode.png";
-import Work2 from "../../assets/Explainable AI Debugger Interface.png";
+import Work1 from "../../assets/nexus.jpg";
+import Work2 from "../../assets/delearner4.png";
 import Work3 from "../../assets/Airline.jpg";
 // import Work4 from "../../assets/work4.jpg";
 // import Work5 from "../../assets/work5.jpg";
@@ -8,10 +8,10 @@ export const projectsData = [
   {
     id: 1,
     image: Work1,
-    title: "Quiz Code",
+    title: "Nexus Digital",
     description:
-      "A sleek and responsive JavaScript quiz app with live scoring, instant feedback, and progress tracking.",
-    link: "https://quiz-think-code.vercel.app/",
+      "AI-powered marketing platform with automated content generation, SEO optimization, and subscription-based access.",
+    link: "https://your-demo-link-1.com",
   },
   {
     id: 2,
