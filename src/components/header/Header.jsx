@@ -19,7 +19,10 @@ const Header = () => {
         const sectionTop = section.offsetTop - 100; // offset for header height
         const sectionHeight = section.offsetHeight;
 
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        if (
+          window.scrollY >= sectionTop &&
+          window.scrollY < sectionTop + sectionHeight
+        ) {
           current = `#${section.getAttribute("id")}`;
         }
       });
@@ -47,16 +50,28 @@ const Header = () => {
               { id: "#about", icon: "uil-user", label: "About" },
               { id: "#skills", icon: "uil-file-alt", label: "Skills" },
               { id: "#services", icon: "uil-briefcase-alt", label: "Services" },
-              { id: "#qualifications", icon: "uil-graduation-cap", label: "Qualifications" },
+              {
+                id: "#qualifications",
+                icon: "uil-graduation-cap",
+                label: "Qualifications",
+              },
               { id: "#portfolio", icon: "uil-scenery", label: "Portfolio" },
               { id: "#contact", icon: "uil-message", label: "Contact" },
             ].map((item) => (
               <li className="nav__item" key={item.id}>
                 <a
                   href={item.id}
-                  onClick={() => setActiveNav(item.id)}
+                  onClick={(e) => {
+                    e.preventDefault(); // disable default jump
+                    const target = document.querySelector(item.id);
+                    target?.scrollIntoView({ behavior: "smooth" });
+                    setActiveNav(item.id);
+                    setMenuOpen(false); // close mobile menu
+                  }}
                   className={
-                    activeNav === item.id ? "nav__link active-link" : "nav__link"
+                    activeNav === item.id
+                      ? "nav__link active-link"
+                      : "nav__link"
                   }
                 >
                   <i className={`uil ${item.icon} nav__icon`}></i>
